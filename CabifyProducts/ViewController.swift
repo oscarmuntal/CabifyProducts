@@ -11,10 +11,8 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        ApiCabify.shared.retrieveProducts()
+        
+        ApiRouter.shared.retrieveProducts(api: .products)
     }
-
-    
-
 }
 
