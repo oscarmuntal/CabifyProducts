@@ -36,7 +36,7 @@ enum ApiCabify: ApiCall {
 class ApiRouter {
     public static let shared = ApiRouter()
     
-    func retrieveProducts(api: ApiCabify) {
+    func retrieveProducts<T: Decodable>(api: ApiCabify, _ completion: @escaping (Result<T, Error>) -> Void) {
         guard let url = api.buildURL() else {
             print("Wrong URL")
             return
@@ -49,8 +49,8 @@ class ApiRouter {
             }
             if let data = data, let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 {
                 do {
-                    let productsDataModel = try JSONDecoder().decode(Products.self, from: data)
-                    print(productsDataModel.products)
+                    let dataModel = try JSONDecoder().decode(T.self, from: data)
+                    completion(.success(dataModel))
                 } catch (let error) {
                     print(error)
                 }
