@@ -7,6 +7,7 @@
 
 import Foundation
 import Combine
+import UIKit
 
 class ProductsPresenter {
     public let wireframe: ProductsWireframe?
@@ -40,6 +41,11 @@ extension ProductsPresenter: ProductsPresenterContract {
     
     func cellViewModel(at indexPath: IndexPath) -> ProductCellViewModel {
         products[indexPath.row].toCellViewModel
+    }
+    
+    func didSelectItem(at indexPath: IndexPath, from viewController: UIViewController) {
+        let product = products[indexPath.row]
+        router?.didSelect(product: product, from: viewController)
     }
 }
 

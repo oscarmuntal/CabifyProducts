@@ -12,4 +12,4 @@ class RootWireframe: RootAwareWireframe {
     static let shared = RootWireframe()
 }
 
-extension RootWireframe: Pushable, ProductsWireframe {}
+extension RootWireframe: Pushable, ProductsWireframe, ProductDetailWireframe, ProductDetailOpener {}
