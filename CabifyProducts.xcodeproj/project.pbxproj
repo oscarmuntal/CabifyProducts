@@ -25,6 +25,7 @@
 		1FD78C0B29A5980D002588F9 /* ProductsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD78C0A29A5980D002588F9 /* ProductsRouter.swift */; };
 		1FD78C0D29A599D8002588F9 /* ViewProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD78C0C29A599D8002588F9 /* ViewProtocols.swift */; };
 		1FD78C1129A59BBD002588F9 /* ProductsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD78C1029A59BBD002588F9 /* ProductsProvider.swift */; };
+		1FD78C1329A59CBE002588F9 /* ProductsView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FD78C1229A59CBE002588F9 /* ProductsView.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		1FD78C0A29A5980D002588F9 /* ProductsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsRouter.swift; sourceTree = "<group>"; };
 		1FD78C0C29A599D8002588F9 /* ViewProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewProtocols.swift; sourceTree = "<group>"; };
 		1FD78C1029A59BBD002588F9 /* ProductsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsProvider.swift; sourceTree = "<group>"; };
+		1FD78C1229A59CBE002588F9 /* ProductsView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProductsView.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				1FD78BFD29A595DA002588F9 /* ProductsView.swift */,
+				1FD78C1229A59CBE002588F9 /* ProductsView.storyboard */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -218,6 +221,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1FD78BEC29A55525002588F9 /* LaunchScreen.storyboard in Resources */,
+				1FD78C1329A59CBE002588F9 /* ProductsView.storyboard in Resources */,
 				1FD78BE929A55525002588F9 /* Assets.xcassets in Resources */,
 				1FD78BE729A55521002588F9 /* Main.storyboard in Resources */,
 			);
