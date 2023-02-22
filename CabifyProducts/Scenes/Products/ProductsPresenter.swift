@@ -39,13 +39,13 @@ extension ProductsPresenter: ProductsPresenterContract {
         products.count
     }
     
-    func cellViewModel(at indexPath: IndexPath) -> ProductCellViewModel {
-        products[indexPath.row].toCellViewModel
+    func cellViewModel(at indexPath: IndexPath) -> ProductViewModel {
+        products[indexPath.row].toViewModel
     }
     
     func didSelectItem(at indexPath: IndexPath, from viewController: UIViewController) {
         let product = products[indexPath.row]
-        router?.didSelect(product: product, from: viewController)
+        router?.didSelect(productViewModel: product.toViewModel, from: viewController)
     }
 }
 

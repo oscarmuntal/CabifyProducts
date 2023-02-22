@@ -9,7 +9,7 @@ import UIKit
 
 protocol ProductDetailBuilderContract: Builder {
     var wireframe: ProductDetailWireframe { get }
-    var product: Product { get }
+    var productViewModel: ProductViewModel { get }
     func buildViewController() -> UIViewController
     func buildPresenter() -> ProductDetailPresenterContract
     func buildInteractor() -> ProductDetailInteractorContract
@@ -17,7 +17,7 @@ protocol ProductDetailBuilderContract: Builder {
 
 extension ProductDetailBuilderContract {
     func buildPresenter() -> ProductDetailPresenterContract {
-        ProductDetailPresenter(wireframe: wireframe, interactor: buildInteractor(), product: product)
+        ProductDetailPresenter(wireframe: wireframe, interactor: buildInteractor(), productViewModel: productViewModel)
     }
     
     func buildInteractor() -> ProductDetailInteractorContract {
@@ -27,17 +27,16 @@ extension ProductDetailBuilderContract {
 
 class ProductDetailBuilder: ProductDetailBuilderContract {
     internal let wireframe: ProductDetailWireframe
-    internal let product: Product
+    internal let productViewModel: ProductViewModel
     
-    init(wireframe: ProductDetailWireframe, product: Product) {
+    init(wireframe: ProductDetailWireframe, productViewModel: ProductViewModel) {
         self.wireframe = wireframe
-        self.product = product
+        self.productViewModel = productViewModel
     }
     
     func buildViewController() -> UIViewController {
         let vc = ProductDetailView.createFromStoryboard()
         vc.presenter = buildPresenter()
-        vc.presenter?.product = self.product
         return vc
     }
 }

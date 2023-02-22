@@ -13,9 +13,9 @@ class ProductsTableViewCell: UITableViewCell {
     @IBOutlet weak var promotion: UILabel!
     @IBOutlet weak var productImage: UIImageView!
     
-    func configure(with viewModel: ProductCellViewModel) {
+    func configure(with viewModel: ProductViewModel) {
         name.text = viewModel.name
-        price.text = "\(viewModel.price)"
+        price.text = "\(viewModel.price) €"
         promotion.text = viewModel.promotion
         productImage.image = UIImage(named: viewModel.imageName)
     }

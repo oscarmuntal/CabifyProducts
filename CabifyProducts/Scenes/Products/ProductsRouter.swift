@@ -16,7 +16,7 @@ class ProductsRouter {
 }
 
 extension ProductsRouter: ProductsRouterContract {
-    func didSelect(product: Product, from viewController: UIViewController) {
-        wireframe.openProductDetail(with: product, from: viewController)
+    func didSelect(productViewModel: ProductViewModel, from viewController: UIViewController) {
+        wireframe.openProductDetail(with: productViewModel, from: viewController)
     }
 }

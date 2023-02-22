@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ProductCellViewModel {
+struct ProductViewModel {
     let name: String
     let price: Double
     let promotion: String

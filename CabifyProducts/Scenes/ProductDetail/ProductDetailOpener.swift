@@ -8,12 +8,12 @@
 import UIKit
 
 protocol ProductDetailOpener {
-    func openProductDetail(with product: Product, from viewController: UIViewController)
+    func openProductDetail(with productViewModel: ProductViewModel, from viewController: UIViewController)
 }
 
 extension ProductDetailOpener where Self: Pushable, Self: ProductDetailWireframe  {
-    func openProductDetail(with product: Product, from viewController: UIViewController) {
-        let productDetailViewController = ProductDetailBuilder(wireframe: self, product: product).buildViewController()
+    func openProductDetail(with productViewModel: ProductViewModel, from viewController: UIViewController) {
+        let productDetailViewController = ProductDetailBuilder(wireframe: self, productViewModel: productViewModel).buildViewController()
         viewController.present(productDetailViewController, animated: true, completion: nil)
     }
 }

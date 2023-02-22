@@ -10,12 +10,12 @@ import Combine
 protocol ProductDetailWireframe {}
 
 protocol ProductDetailViewContract {
-    func configure(with product: Product)
+    func configure(with productViewModel: ProductViewModel)
 }
 
 protocol ProductDetailPresenterContract {
     var view: ProductDetailViewContract? { get set }
-    var product: Product { get set }
+    var productViewModel: ProductViewModel { get set }
 }
 
 protocol ProductDetailInteractorContract {}

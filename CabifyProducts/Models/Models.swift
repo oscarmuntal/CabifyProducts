@@ -18,7 +18,7 @@ struct Product: Decodable {
 }
 
 extension Product {
-    var toCellViewModel: ProductCellViewModel {
+    var toViewModel: ProductViewModel {
         .init(name: name, price: price, promotion: promotionByProduct(with: code), imageName: code.lowercased())
     }
     

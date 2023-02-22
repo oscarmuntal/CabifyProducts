@@ -10,12 +10,12 @@ import Foundation
 class ProductDetailPresenter: ProductDetailPresenterContract {
     private let wireframe: ProductDetailWireframe?
     private let interactor: ProductDetailInteractorContract?
-    internal var product: Product
+    internal var productViewModel: ProductViewModel
     
-    init(wireframe: ProductDetailWireframe, interactor: ProductDetailInteractorContract, product: Product) {
+    init(wireframe: ProductDetailWireframe, interactor: ProductDetailInteractorContract, productViewModel: ProductViewModel) {
         self.wireframe = wireframe
         self.interactor = interactor
-        self.product = product
+        self.productViewModel = productViewModel
     }
     
     var view: ProductDetailViewContract? {
@@ -28,6 +28,6 @@ class ProductDetailPresenter: ProductDetailPresenterContract {
 
 private extension ProductDetailPresenter {
     func setupView() {
-        view?.configure(with: product)
+        view?.configure(with: productViewModel)
     }
 }

@@ -15,7 +15,7 @@ protocol ProductsViewContract: ReloadAwareView {}
 protocol ProductsPresenterContract {
     var view: ProductsViewContract? { get set }
     func numProducts() -> Int
-    func cellViewModel(at indexPath: IndexPath) -> ProductCellViewModel
+    func cellViewModel(at indexPath: IndexPath) -> ProductViewModel
     func didSelectItem(at indexPath: IndexPath, from viewController: UIViewController)
 }
 
@@ -24,5 +24,5 @@ protocol ProductsInteractorContract {
 }
 
 protocol ProductsRouterContract {
-    func didSelect(product: Product, from viewController: UIViewController)
+    func didSelect(productViewModel: ProductViewModel, from viewController: UIViewController)
 }
