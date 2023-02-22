@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Combine
 
 protocol ApiCall {
     var baseUrl: String? { get }
@@ -33,10 +34,15 @@ enum ApiCabify: ApiCall {
     }
 }
 
-class ApiRouter {
+protocol ApiRouting {
+    func requestDecodable<T: Decodable>(api: ApiCabify, _ completion: @escaping (Result<T, Error>) -> Void)
+    func requestDecodablePublisher<T: Decodable>(api: ApiCabify) -> AnyPublisher<T, Error>
+}
+
+class ApiRouter: ApiRouting {
     public static let shared = ApiRouter()
     
-    func retrieveProducts<T: Decodable>(api: ApiCabify, _ completion: @escaping (Result<T, Error>) -> Void) {
+    func requestDecodable<T: Decodable>(api: ApiCabify, _ completion: @escaping (Result<T, Error>) -> Void) {
         guard let url = api.buildURL() else {
             print("Wrong URL")
             return
@@ -56,5 +62,20 @@ class ApiRouter {
                 }
             }
         }.resume()
+    }
+    
+    func requestDecodablePublisher<T: Decodable>(api: ApiCabify) -> AnyPublisher<T, Error> {
+        Deferred {
+            Future { [weak self] promise in
+                self?.requestDecodable(api: api, { (result: Result<T, Error>) in
+                    switch result {
+                    case .success(let data):
+                        promise(.success(data))
+                    case .failure(let error):
+                        promise(.failure(error))
+                    }
+                })
+            }
+        }.eraseToAnyPublisher()
     }
 }
