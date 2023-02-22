@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-class ProductsPresenter: ProductsPresenterContract {
+class ProductsPresenter {
     public let wireframe: ProductsWireframe?
     public let interactor: ProductsInteractorContract?
     public let router: ProductsRouterContract?
@@ -25,6 +25,22 @@ class ProductsPresenter: ProductsPresenterContract {
             loadProducts()
         }
     }
+    
+    internal var products = [Product]() {
+        didSet {
+            view?.reload()
+        }
+    }
+}
+
+extension ProductsPresenter: ProductsPresenterContract {
+    func numProducts() -> Int {
+        products.count
+    }
+    
+    func cellViewModel(at indexPath: IndexPath) -> ProductCellViewModel {
+        products[indexPath.row].toCellViewModel
+    }
 }
 
 private extension ProductsPresenter {
@@ -37,8 +53,9 @@ private extension ProductsPresenter {
                     print(error)
                 case .finished: break
                 }
-            } receiveValue: { productsDataModel in
+            } receiveValue: { [weak self] productsDataModel in
                 print(productsDataModel.products)
+                self?.products.append(contentsOf: productsDataModel.products)
             }.store(in: &cancellables)
     }
 }

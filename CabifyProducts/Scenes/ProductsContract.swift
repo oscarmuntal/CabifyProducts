@@ -12,10 +12,12 @@ protocol ProductsRouterContract {}
 
 protocol ProductsWireframe {}
 
-protocol ProductsViewContract {}
+protocol ProductsViewContract: ReloadAwareView {}
 
 protocol ProductsPresenterContract {
     var view: ProductsViewContract? { get set }
+    func numProducts() -> Int
+    func cellViewModel(at indexPath: IndexPath) -> ProductCellViewModel
 }
 
 protocol ProductsInteractorContract {
