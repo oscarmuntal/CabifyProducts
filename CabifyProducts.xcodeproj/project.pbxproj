@@ -26,6 +26,8 @@
 		1FD78C0D29A599D8002588F9 /* ViewProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD78C0C29A599D8002588F9 /* ViewProtocols.swift */; };
 		1FD78C1129A59BBD002588F9 /* ProductsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD78C1029A59BBD002588F9 /* ProductsProvider.swift */; };
 		1FD78C1329A59CBE002588F9 /* ProductsView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FD78C1229A59CBE002588F9 /* ProductsView.storyboard */; };
+		1FD78C1629A59D44002588F9 /* RootWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD78C1529A59D44002588F9 /* RootWireframe.swift */; };
+		1FD78C1829A59D84002588F9 /* WireframeProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD78C1729A59D84002588F9 /* WireframeProtocols.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +52,8 @@
 		1FD78C0C29A599D8002588F9 /* ViewProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewProtocols.swift; sourceTree = "<group>"; };
 		1FD78C1029A59BBD002588F9 /* ProductsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsProvider.swift; sourceTree = "<group>"; };
 		1FD78C1229A59CBE002588F9 /* ProductsView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProductsView.storyboard; sourceTree = "<group>"; };
+		1FD78C1529A59D44002588F9 /* RootWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootWireframe.swift; sourceTree = "<group>"; };
+		1FD78C1729A59D84002588F9 /* WireframeProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WireframeProtocols.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +89,7 @@
 				1FD78BDF29A55521002588F9 /* AppDelegate.swift */,
 				1FD78BE129A55521002588F9 /* SceneDelegate.swift */,
 				1FD78BE329A55521002588F9 /* ViewController.swift */,
+				1FD78C1429A59D33002588F9 /* Wireframes */,
 				1FD78C0929A597C7002588F9 /* Protocols */,
 				1FD78C0F29A59BA4002588F9 /* Use Cases */,
 				1FD78BF629A556FA002588F9 /* Network */,
@@ -141,6 +146,7 @@
 			children = (
 				1FD78C0729A597C2002588F9 /* BuilderProtocols.swift */,
 				1FD78C0C29A599D8002588F9 /* ViewProtocols.swift */,
+				1FD78C1729A59D84002588F9 /* WireframeProtocols.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -160,6 +166,14 @@
 				1FD78C1029A59BBD002588F9 /* ProductsProvider.swift */,
 			);
 			path = "Use Cases";
+			sourceTree = "<group>";
+		};
+		1FD78C1429A59D33002588F9 /* Wireframes */ = {
+			isa = PBXGroup;
+			children = (
+				1FD78C1529A59D44002588F9 /* RootWireframe.swift */,
+			);
+			path = Wireframes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -238,8 +252,10 @@
 				1FD78C0829A597C2002588F9 /* BuilderProtocols.swift in Sources */,
 				1FD78BE429A55521002588F9 /* ViewController.swift in Sources */,
 				1FD78BE029A55521002588F9 /* AppDelegate.swift in Sources */,
+				1FD78C1629A59D44002588F9 /* RootWireframe.swift in Sources */,
 				1FD78C0229A595F3002588F9 /* ProductsInteractor.swift in Sources */,
 				1FD78C0B29A5980D002588F9 /* ProductsRouter.swift in Sources */,
+				1FD78C1829A59D84002588F9 /* WireframeProtocols.swift in Sources */,
 				1FD78C0D29A599D8002588F9 /* ViewProtocols.swift in Sources */,
 				1FD78BE229A55521002588F9 /* SceneDelegate.swift in Sources */,
 				1FD78C1129A59BBD002588F9 /* ProductsProvider.swift in Sources */,
