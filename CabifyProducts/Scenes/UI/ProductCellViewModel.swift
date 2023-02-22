@@ -11,4 +11,5 @@ struct ProductCellViewModel {
     let name: String
     let price: Double
     let promotion: String
+    let imageName: String
 }

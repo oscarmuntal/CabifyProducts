@@ -17,6 +17,7 @@ class ProductsTableViewCell: UITableViewCell {
         name.text = viewModel.name
         price.text = "\(viewModel.price)"
         promotion.text = viewModel.promotion
+        productImage.image = UIImage(named: viewModel.imageName)
     }
 
 }
