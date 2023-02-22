@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Combine
 
 protocol ProductsRouterContract {}
 
@@ -17,4 +18,6 @@ protocol ProductsPresenterContract {
     var view: ProductsViewContract? { get set }
 }
 
-protocol ProductsInteractorContract {}
+protocol ProductsInteractorContract {
+    func fetchProducts() -> AnyPublisher<Products, Error>
+}
