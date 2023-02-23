@@ -87,18 +87,50 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s1h-XG-2BG">
+                                <rect key="frame" x="0.0" y="768" width="414" height="128"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fcj-db-gq6">
+                                        <rect key="frame" x="8" y="8" width="398" height="72"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="Button">
+                                                    <attributes>
+                                                        <font key="NSFont" size="20" name="Helvetica"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="addToBasket:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Om2-XS-Pdn"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="fcj-db-gq6" secondAttribute="trailing" constant="8" id="U66-0t-PKq"/>
+                                    <constraint firstAttribute="height" constant="128" id="abl-3q-Q1c"/>
+                                    <constraint firstAttribute="bottom" secondItem="fcj-db-gq6" secondAttribute="bottom" constant="48" id="fcp-kw-pW5"/>
+                                    <constraint firstItem="fcj-db-gq6" firstAttribute="leading" secondItem="s1h-XG-2BG" secondAttribute="leading" constant="8" id="rJ5-wC-53P"/>
+                                    <constraint firstItem="fcj-db-gq6" firstAttribute="top" secondItem="s1h-XG-2BG" secondAttribute="top" constant="8" id="w2I-pe-AKD"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="v52-70-5su" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="30z-a4-BNI"/>
                             <constraint firstItem="dLd-ba-Rme" firstAttribute="top" secondItem="Avs-WV-slh" secondAttribute="bottom" constant="20" id="3JO-fD-iwz"/>
+                            <constraint firstItem="s1h-XG-2BG" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="3a9-0e-jrt"/>
                             <constraint firstItem="ZHf-8D-8bk" firstAttribute="top" secondItem="dLd-ba-Rme" secondAttribute="bottom" constant="28.5" id="9pj-p8-Jhg"/>
                             <constraint firstItem="v52-70-5su" firstAttribute="top" secondItem="sgl-4Z-e3f" secondAttribute="bottom" constant="24" id="FYB-9w-ssW"/>
                             <constraint firstItem="ZHf-8D-8bk" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="GGs-7I-QWL"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="sgl-4Z-e3f" secondAttribute="trailing" id="LCd-iy-iTD"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="s1h-XG-2BG" secondAttribute="trailing" id="PqP-fC-Pyz"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="dLd-ba-Rme" secondAttribute="trailing" constant="20" id="QSt-d3-ZTs"/>
                             <constraint firstItem="Avs-WV-slh" firstAttribute="top" secondItem="v52-70-5su" secondAttribute="bottom" constant="20" id="ZIo-Au-x54"/>
+                            <constraint firstItem="s1h-XG-2BG" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" constant="34" id="eFE-g7-9rj"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="v52-70-5su" secondAttribute="trailing" constant="20" id="gy4-oD-NyB"/>
                             <constraint firstItem="sgl-4Z-e3f" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="izQ-hg-bp0"/>
                             <constraint firstItem="sgl-4Z-e3f" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="koU-T8-mDV"/>
@@ -108,6 +140,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="addToBasketButton" destination="fcj-db-gq6" id="ylL-9c-vHU"/>
                         <outlet property="name" destination="v52-70-5su" id="0tf-6M-Pqd"/>
                         <outlet property="numberOfItems" destination="msQ-X7-DhC" id="ro4-bY-zXm"/>
                         <outlet property="price" destination="Avs-WV-slh" id="1kF-A8-W9b"/>
@@ -126,6 +159,9 @@
         </systemColor>
         <systemColor name="systemGray3Color">
             <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGrayColor">
             <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

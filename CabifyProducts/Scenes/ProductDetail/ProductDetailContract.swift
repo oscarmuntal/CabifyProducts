@@ -17,6 +17,8 @@ protocol ProductDetailViewContract {
 protocol ProductDetailPresenterContract {
     var view: ProductDetailViewContract? { get set }
     var productViewModel: ProductViewModel { get set }
+    var quantity: Int { get set }
+    var totalPrice: Double { get }
     func addOne()
     func substractOne()
 }

@@ -13,8 +13,13 @@ class ProductDetailPresenter {
     internal var productViewModel: ProductViewModel
     public var quantity: Int {
         didSet {
-            view?.setQuantity(with: quantity)
+            DispatchQueue.main.async {
+                self.view?.setQuantity(with: self.quantity)
+            }
         }
+    }
+    public var totalPrice: Double {
+        Double(quantity) * productViewModel.price
     }
     
     init(wireframe: ProductDetailWireframe, interactor: ProductDetailInteractorContract, productViewModel: ProductViewModel) {
@@ -47,7 +52,9 @@ extension ProductDetailPresenter: ProductDetailPresenterContract {
 
 private extension ProductDetailPresenter {
     func setupView() {
-        view?.setQuantity(with: quantity)
-        view?.configure(with: productViewModel)
+        DispatchQueue.main.async {
+            self.view?.setQuantity(with: self.quantity)
+            self.view?.configure(with: self.productViewModel)
+        }
     }
 }

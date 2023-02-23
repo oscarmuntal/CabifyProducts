@@ -19,6 +19,10 @@ class ProductDetailView: UIViewController, CreatableView {
     @IBAction func add(_ sender: Any) {
         presenter?.addOne()
     }
+    @IBOutlet weak var addToBasketButton: UIButton!
+    @IBAction func addToBasket(_ sender: Any) {
+        print("to basket")
+    }
     
     public var presenter: ProductDetailPresenterContract?
     
@@ -32,13 +36,23 @@ class ProductDetailView: UIViewController, CreatableView {
 extension ProductDetailView: ProductDetailViewContract {
     func setQuantity(with quantity: Int) {
         numberOfItems.text = "\(quantity)"
+        guard let presenter = presenter else { return }
+        setBasketButton(with: presenter)
     }
     
     func configure(with productViewModel: ProductViewModel) {
-        print("TO DO: Configure Product View")
         productImageView.image = UIImage(named: productViewModel.imageName)
         name.text = productViewModel.name
         price.text = "\(productViewModel.price) €"
         productDescription.text = productViewModel.promotion
+        guard let presenter = presenter else { return }
+        setBasketButton(with: presenter)
+    }
+}
+
+private extension ProductDetailView {
+    func setBasketButton(with presenter: ProductDetailPresenterContract) {
+        let title = "Add \(presenter.quantity) to basket · \(presenter.totalPrice) €"
+        addToBasketButton.setTitle(title, for: .normal)
     }
 }
