@@ -12,4 +12,5 @@ struct ProductViewModel {
     let price: Double
     let promotion: String
     let imageName: String
+    let quantityToBuy: Int
 }

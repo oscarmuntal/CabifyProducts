@@ -12,6 +12,13 @@ class ProductDetailView: UIViewController, CreatableView {
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var price: UILabel!
     @IBOutlet weak var productDescription: UILabel!
+    @IBOutlet weak var numberOfItems: UILabel!
+    @IBAction func substract(_ sender: Any) {
+        presenter?.substractOne()
+    }
+    @IBAction func add(_ sender: Any) {
+        presenter?.addOne()
+    }
     
     public var presenter: ProductDetailPresenterContract?
     
@@ -23,6 +30,10 @@ class ProductDetailView: UIViewController, CreatableView {
 }
 
 extension ProductDetailView: ProductDetailViewContract {
+    func setQuantity(with quantity: Int) {
+        numberOfItems.text = "\(quantity)"
+    }
+    
     func configure(with productViewModel: ProductViewModel) {
         print("TO DO: Configure Product View")
         productImageView.image = UIImage(named: productViewModel.imageName)

@@ -19,7 +19,7 @@ struct Product: Decodable {
 
 extension Product {
     var toViewModel: ProductViewModel {
-        .init(name: name, price: price, promotion: promotionByProduct(with: code), imageName: code.lowercased())
+        .init(name: name, price: price, promotion: promotionByProduct(with: code), imageName: code.lowercased(), quantityToBuy: 0)
     }
     
     func promotionByProduct(with name: String) -> String {
