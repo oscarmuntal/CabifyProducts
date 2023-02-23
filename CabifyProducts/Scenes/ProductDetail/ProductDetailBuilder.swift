@@ -13,15 +13,20 @@ protocol ProductDetailBuilderContract: Builder {
     func buildViewController() -> UIViewController
     func buildPresenter() -> ProductDetailPresenterContract
     func buildInteractor() -> ProductDetailInteractorContract
+    func buildRouter() -> ProductDetailRouterContract
 }
 
 extension ProductDetailBuilderContract {
     func buildPresenter() -> ProductDetailPresenterContract {
-        ProductDetailPresenter(wireframe: wireframe, interactor: buildInteractor(), productViewModel: productViewModel)
+        ProductDetailPresenter(wireframe: wireframe, interactor: buildInteractor(), router: buildRouter(), productViewModel: productViewModel)
     }
     
     func buildInteractor() -> ProductDetailInteractorContract {
         ProductDetailInteractor()
+    }
+    
+    func buildRouter() -> ProductDetailRouterContract {
+        ProductDetailRouter()
     }
 }
 

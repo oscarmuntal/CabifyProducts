@@ -116,6 +116,17 @@
                                     <constraint firstItem="fcj-db-gq6" firstAttribute="top" secondItem="s1h-XG-2BG" secondAttribute="top" constant="8" id="w2I-pe-AKD"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="close" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="coJ-Yb-CdJ" userLabel="Close Button">
+                                <rect key="frame" x="0.0" y="44" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Vao-qD-7EX"/>
+                                    <constraint firstAttribute="width" constant="50" id="yob-Sl-Zy9"/>
+                                </constraints>
+                                <buttonConfiguration key="configuration" style="plain"/>
+                                <connections>
+                                    <action selector="close:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="F5C-Ux-iXy"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -124,6 +135,7 @@
                             <constraint firstItem="dLd-ba-Rme" firstAttribute="top" secondItem="Avs-WV-slh" secondAttribute="bottom" constant="20" id="3JO-fD-iwz"/>
                             <constraint firstItem="s1h-XG-2BG" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="3a9-0e-jrt"/>
                             <constraint firstItem="ZHf-8D-8bk" firstAttribute="top" secondItem="dLd-ba-Rme" secondAttribute="bottom" constant="28.5" id="9pj-p8-Jhg"/>
+                            <constraint firstItem="coJ-Yb-CdJ" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="DGG-fp-r0W"/>
                             <constraint firstItem="v52-70-5su" firstAttribute="top" secondItem="sgl-4Z-e3f" secondAttribute="bottom" constant="24" id="FYB-9w-ssW"/>
                             <constraint firstItem="ZHf-8D-8bk" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="GGs-7I-QWL"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="sgl-4Z-e3f" secondAttribute="trailing" id="LCd-iy-iTD"/>
@@ -135,6 +147,7 @@
                             <constraint firstItem="sgl-4Z-e3f" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="izQ-hg-bp0"/>
                             <constraint firstItem="sgl-4Z-e3f" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="koU-T8-mDV"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Avs-WV-slh" secondAttribute="trailing" constant="20" id="phf-XD-z6M"/>
+                            <constraint firstItem="coJ-Yb-CdJ" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="tVN-qq-rqu"/>
                             <constraint firstItem="Avs-WV-slh" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="tgO-Or-Vzw"/>
                             <constraint firstItem="dLd-ba-Rme" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="wk2-Ba-zRE"/>
                         </constraints>

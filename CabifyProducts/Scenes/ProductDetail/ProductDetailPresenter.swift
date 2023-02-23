@@ -5,11 +5,12 @@
 //  Created by Òscar Muntal on 22/2/23.
 //
 
-import Foundation
+import UIKit
 
 class ProductDetailPresenter {
     private let wireframe: ProductDetailWireframe?
     private let interactor: ProductDetailInteractorContract?
+    private let router: ProductDetailRouterContract?
     internal var productViewModel: ProductViewModel
     public var quantity: Int {
         didSet {
@@ -22,9 +23,10 @@ class ProductDetailPresenter {
         Double(quantity) * productViewModel.price
     }
     
-    init(wireframe: ProductDetailWireframe, interactor: ProductDetailInteractorContract, productViewModel: ProductViewModel) {
+    init(wireframe: ProductDetailWireframe, interactor: ProductDetailInteractorContract, router: ProductDetailRouterContract, productViewModel: ProductViewModel) {
         self.wireframe = wireframe
         self.interactor = interactor
+        self.router = router
         self.productViewModel = productViewModel
         self.quantity = 1
     }
@@ -47,6 +49,10 @@ extension ProductDetailPresenter: ProductDetailPresenterContract {
         if quantity > 1 {
             quantity -= 1
         }
+    }
+    
+    func closeModalScreen(_ viewController: UIViewController) {
+        router?.closeModalScreen(viewController)
     }
 }
 

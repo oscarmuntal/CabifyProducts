@@ -5,6 +5,7 @@
 //  Created by Òscar Muntal on 22/2/23.
 //
 
+import UIKit
 import Combine
 
 protocol ProductDetailWireframe {}
@@ -21,6 +22,7 @@ protocol ProductDetailPresenterContract {
     var totalPrice: Double { get }
     func addOne()
     func substractOne()
+    func closeModalScreen(_ viewController: UIViewController)
 }
 
 protocol ProductDetailInteractorContract {}

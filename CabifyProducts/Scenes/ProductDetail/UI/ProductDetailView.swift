@@ -23,6 +23,9 @@ class ProductDetailView: UIViewController, CreatableView {
     @IBAction func addToBasket(_ sender: Any) {
         print("to basket")
     }
+    @IBAction func close(_ sender: Any) {
+        presenter?.closeModalScreen(self)
+    }
     
     public var presenter: ProductDetailPresenterContract?
     
