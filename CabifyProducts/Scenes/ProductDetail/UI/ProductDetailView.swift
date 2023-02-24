@@ -21,7 +21,8 @@ class ProductDetailView: UIViewController, CreatableView {
     }
     @IBOutlet weak var addToBasketButton: UIButton!
     @IBAction func addToBasket(_ sender: Any) {
-        print("to basket")
+        // Add chosen number of items and it's total price and publish this values to be read by the products list and the basket.
+        presenter?.closeModalScreen(self)
     }
     @IBAction func close(_ sender: Any) {
         presenter?.closeModalScreen(self)
@@ -39,23 +40,21 @@ class ProductDetailView: UIViewController, CreatableView {
 extension ProductDetailView: ProductDetailViewContract {
     func setQuantity(with quantity: Int) {
         numberOfItems.text = "\(quantity)"
-        guard let presenter = presenter else { return }
-        setBasketButton(with: presenter)
     }
     
     func configure(with productViewModel: ProductViewModel) {
         productImageView.image = UIImage(named: productViewModel.imageName)
         name.text = productViewModel.name
         price.text = "\(productViewModel.price) €"
-        productDescription.text = productViewModel.promotion
+        productDescription.text = productViewModel.detail
         guard let presenter = presenter else { return }
-        setBasketButton(with: presenter)
+        setBasketButton(with: presenter, viewModel: productViewModel)
     }
 }
 
 private extension ProductDetailView {
-    func setBasketButton(with presenter: ProductDetailPresenterContract) {
-        let title = "Add \(presenter.quantity) to basket · \(presenter.totalPrice) €"
+    func setBasketButton(with presenter: ProductDetailPresenterContract, viewModel: ProductViewModel) {
+        let title = "Add \(presenter.quantity) to basket · \(viewModel.finalPrice(quantityToBuy: presenter.quantity)) €"
         addToBasketButton.setTitle(title, for: .normal)
     }
 }

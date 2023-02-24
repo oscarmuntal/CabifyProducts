@@ -15,12 +15,12 @@ class ProductDetailPresenter {
     public var quantity: Int {
         didSet {
             DispatchQueue.main.async {
-                self.view?.setQuantity(with: self.quantity)
+                self.setupView()
             }
         }
     }
     public var totalPrice: Double {
-        Double(quantity) * productViewModel.price
+        productViewModel.finalPrice(quantityToBuy: quantity)
     }
     
     init(wireframe: ProductDetailWireframe, interactor: ProductDetailInteractorContract, router: ProductDetailRouterContract, productViewModel: ProductViewModel) {

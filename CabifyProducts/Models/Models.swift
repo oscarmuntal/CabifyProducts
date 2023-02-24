@@ -19,15 +19,26 @@ struct Product: Decodable {
 
 extension Product {
     var toViewModel: ProductViewModel {
-        .init(name: name, price: price, promotion: promotionByProduct(with: code), imageName: code.lowercased(), quantityToBuy: 0)
+        .init(name: name, price: price, detail: detailByProduct(with: code), imageName: code.lowercased(), promotion: getPromotion(by: code))
     }
     
-    func promotionByProduct(with name: String) -> String {
-        switch name.uppercased() {
+    func detailByProduct(with code: String) -> String {
+        switch code.uppercased() {
         case "VOUCHER": return "2-for-1 promotion!"
         case "TSHIRT", "T-SHIRT": return "Buy 3 or more and you'll get a discount!"
         case "MUG": return "Wonderful and excusive mugs, designed by special artists"
         default: return ""
+        }
+    }
+    
+    func getPromotion(by code: String) -> Promotion {
+        switch code.uppercased() {
+        case "VOUCHER":
+            return Promotion(type: .buyXGetZFree, amountToBuy: 2, amountFree: 1, priceWithDiscount: nil)
+        case "TSHIRT", "T-SHIRT":
+            return Promotion(type: .bulk, amountToBuy: 3, amountFree: nil, priceWithDiscount: 19.0)
+        default:
+            return Promotion(type: .other, amountToBuy: 0, amountFree: nil, priceWithDiscount: nil)
         }
     }
 }
