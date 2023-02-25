@@ -23,6 +23,7 @@ protocol ProductDetailPresenterContract {
     func addOne()
     func substractOne()
     func closeModalScreen(_ viewController: UIViewController)
+    func postSelectedItemsAndTotalPrice()
 }
 
 protocol ProductDetailInteractorContract {}

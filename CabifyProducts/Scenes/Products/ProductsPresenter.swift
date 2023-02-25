@@ -19,6 +19,8 @@ class ProductsPresenter {
         self.wireframe = wireframe
         self.interactor = interactor
         self.router = router
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(handleItemPriceNotification(_:)), name: totalPriceNotificationName, object: nil)
     }
     
     public var view: ProductsViewContract? {
@@ -31,6 +33,13 @@ class ProductsPresenter {
         didSet {
             view?.reload()
         }
+    }
+    
+    @objc func handleItemPriceNotification(_ notification: Notification) {
+        guard let userInfo = notification.userInfo as? [String : Any],
+              let itemName = userInfo["item"] as? String,
+              let totalPrice = userInfo["totalPrice"] as? Double else { return }
+        print("⭐️ item: \(itemName) has a total price of \(totalPrice)")
     }
 }
 

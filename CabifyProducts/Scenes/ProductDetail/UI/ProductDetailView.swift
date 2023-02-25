@@ -21,7 +21,7 @@ class ProductDetailView: UIViewController, CreatableView {
     }
     @IBOutlet weak var addToBasketButton: UIButton!
     @IBAction func addToBasket(_ sender: Any) {
-        // Add chosen number of items and it's total price and publish this values to be read by the products list and the basket.
+        presenter?.postSelectedItemsAndTotalPrice()
         presenter?.closeModalScreen(self)
     }
     @IBAction func close(_ sender: Any) {

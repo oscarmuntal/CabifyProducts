@@ -54,6 +54,15 @@ extension ProductDetailPresenter: ProductDetailPresenterContract {
     func closeModalScreen(_ viewController: UIViewController) {
         router?.closeModalScreen(viewController)
     }
+    
+    func postSelectedItemsAndTotalPrice() {
+        let quantityNotificationName = Notification.Name("selected items from \(productViewModel.name)")
+        let quantityNotificationObject = ["quantity": quantity]
+        NotificationCenter.default.post(name: quantityNotificationName, object: quantity, userInfo: quantityNotificationObject)
+        
+        let totalPriceNotificationObject = ["item" : productViewModel.name, "totalPrice" : totalPrice] as [String : Any]
+        NotificationCenter.default.post(name: totalPriceNotificationName, object: nil, userInfo: totalPriceNotificationObject)
+    }
 }
 
 private extension ProductDetailPresenter {

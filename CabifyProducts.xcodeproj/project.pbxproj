@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F0839C829A9895100691274 /* NotificationsConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0839C729A9895100691274 /* NotificationsConstants.swift */; };
 		1F335D7C29A64CA6004B3B68 /* ProductsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F335D7B29A64CA6004B3B68 /* ProductsTableViewCell.swift */; };
 		1F335D7E29A6A0DB004B3B68 /* ProductViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F335D7D29A6A0DB004B3B68 /* ProductViewModel.swift */; };
 		1F335D8229A6BF1B004B3B68 /* ProductDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F335D8129A6BF1B004B3B68 /* ProductDetailView.swift */; };
@@ -39,6 +40,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1F0839C729A9895100691274 /* NotificationsConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsConstants.swift; sourceTree = "<group>"; };
 		1F335D7B29A64CA6004B3B68 /* ProductsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsTableViewCell.swift; sourceTree = "<group>"; };
 		1F335D7D29A6A0DB004B3B68 /* ProductViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewModel.swift; sourceTree = "<group>"; };
 		1F335D8129A6BF1B004B3B68 /* ProductDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailView.swift; sourceTree = "<group>"; };
@@ -83,6 +85,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1F0839C629A9893000691274 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				1F0839C729A9895100691274 /* NotificationsConstants.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
 		1F335D7F29A6BED9004B3B68 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -140,6 +150,7 @@
 			children = (
 				1FD78BDF29A55521002588F9 /* AppDelegate.swift */,
 				1FD78BE129A55521002588F9 /* SceneDelegate.swift */,
+				1F0839C629A9893000691274 /* Constants */,
 				1FD78C1429A59D33002588F9 /* Wireframes */,
 				1FD78C0929A597C7002588F9 /* Protocols */,
 				1FD78C0F29A59BA4002588F9 /* Use Cases */,
@@ -312,6 +323,7 @@
 				1FD78BE229A55521002588F9 /* SceneDelegate.swift in Sources */,
 				1FD78C1129A59BBD002588F9 /* ProductsProvider.swift in Sources */,
 				1F335D7E29A6A0DB004B3B68 /* ProductViewModel.swift in Sources */,
+				1F0839C829A9895100691274 /* NotificationsConstants.swift in Sources */,
 				1F335D7C29A64CA6004B3B68 /* ProductsTableViewCell.swift in Sources */,
 				1FD78C0429A595FE002588F9 /* ProductsBuilder.swift in Sources */,
 				1FD78BF529A555F1002588F9 /* Models.swift in Sources */,
