@@ -54,7 +54,9 @@ extension ProductDetailView: ProductDetailViewContract {
 
 private extension ProductDetailView {
     func setBasketButton(with presenter: ProductDetailPresenterContract, viewModel: ProductViewModel) {
-        let title = "Add \(presenter.quantity) to basket · \(viewModel.finalPrice(quantityToBuy: presenter.quantity)) €"
+        let title = presenter.quantity > 0 ?
+                    "Add \(presenter.quantity) to basket · \(viewModel.finalPrice(quantityToBuy: presenter.quantity)) €" :
+                    "Remove this item from the basket"
         addToBasketButton.setTitle(title, for: .normal)
     }
 }

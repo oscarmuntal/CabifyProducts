@@ -46,7 +46,7 @@ extension ProductDetailPresenter: ProductDetailPresenterContract {
     }
     
     func substractOne() {
-        if quantity > 1 {
+        if quantity > 0 {
             quantity -= 1
         }
     }
