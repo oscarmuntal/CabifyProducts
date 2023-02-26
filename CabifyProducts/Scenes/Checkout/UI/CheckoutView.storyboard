@@ -16,6 +16,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="CJC-io-df3">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="596"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="checkoutCell" rowHeight="90" id="haX-hA-8c3" customClass="CheckoutTableViewCell" customModule="CabifyProducts" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="90"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="haX-hA-8c3" id="eGK-2w-BFy">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="90"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="Y6W-OH-hqX" id="QEN-vv-HrE"/>
+                                    <outlet property="delegate" destination="Y6W-OH-hqX" id="Hae-Kc-fWA"/>
+                                </connections>
+                            </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IZh-sf-G5i" userLabel="FooterView">
                                 <rect key="frame" x="0.0" y="596" width="414" height="300"/>
                                 <subviews>
@@ -147,15 +165,20 @@
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemYellowColor"/>
                         <constraints>
+                            <constraint firstItem="IZh-sf-G5i" firstAttribute="top" secondItem="CJC-io-df3" secondAttribute="bottom" id="2nx-lA-IfB"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="IZh-sf-G5i" secondAttribute="trailing" id="GgC-bY-sef"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="CJC-io-df3" secondAttribute="trailing" id="MIu-qe-Vm4"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="top" secondItem="CJC-io-df3" secondAttribute="top" constant="44" id="aUn-1C-iXU"/>
                             <constraint firstItem="IZh-sf-G5i" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" constant="34" id="c8h-ju-hnV"/>
                             <constraint firstItem="IZh-sf-G5i" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="k0W-u3-8Ey"/>
+                            <constraint firstItem="CJC-io-df3" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="rhA-V7-bHI"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="payButton" destination="ggM-mX-GNA" id="Ud0-TN-iMV"/>
                         <outlet property="shipping" destination="M57-5a-p23" id="Q8B-aV-XHW"/>
                         <outlet property="subtotal" destination="Hdc-qM-gl0" id="N1N-RI-I1X"/>
+                        <outlet property="tableView" destination="CJC-io-df3" id="SzP-Aq-Yk4"/>
                         <outlet property="total" destination="FRh-9N-OX9" id="p2K-1P-Dx7"/>
                     </connections>
                 </viewController>
