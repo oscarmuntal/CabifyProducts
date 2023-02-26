@@ -14,6 +14,7 @@ protocol CheckoutViewContract {}
 protocol CheckoutPresenterContract {
     var view: CheckoutViewContract? { get set }
     var totalPrice: Double { get }
+    var products: [ProductViewModel] { get }
 }
 
 protocol CheckoutInteractorContract {}

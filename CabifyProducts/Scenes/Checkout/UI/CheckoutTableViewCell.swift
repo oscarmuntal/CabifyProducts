@@ -8,16 +8,15 @@
 import UIKit
 
 class CheckoutTableViewCell: UITableViewCell {
+    @IBOutlet weak var productImage: UIImageView!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var quantityLabel: UILabel!
+    @IBOutlet weak var totalPriceLabel: UILabel!
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    func configure(with viewModel: ProductViewModel) {
+        productImage.image = UIImage(named: viewModel.imageName)
+        nameLabel.text = viewModel.name
+        quantityLabel.text = "\(viewModel.quantity) x \(viewModel.code)"
+        totalPriceLabel.text = "\(viewModel.finalPrice(quantityToBuy: viewModel.quantity)) €"
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
 }
