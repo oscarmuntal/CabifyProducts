@@ -7,20 +7,29 @@
 
 import UIKit
 
-class ProductsView: UIViewController, CreatableView, ViewWithTable, ProductsViewContract {
+class ProductsView: UIViewController, CreatableView, ViewWithTable {
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var checkoutButton: UIBarButtonItem!
     @IBAction func checkoutTapped(_ sender: Any) {
-        presenter?.checkoutTapped()
+        if checkoutButton.isEnabled {
+            presenter?.checkoutTapped()
+        }
     }
     var table: UITableView { tableView }
     var presenter: ProductsPresenterContract?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter?.view = self
-        title = "Products"
+        setup()
     }
     
+    func setup() {
+        presenter?.view = self
+        DispatchQueue.main.async {
+            self.title = "Products"
+            self.checkoutButton.isEnabled = false
+        }
+    }
 }
 
 extension ProductsView: UITableViewDelegate, UITableViewDataSource {
@@ -44,4 +53,12 @@ extension ProductsView: UITableViewDelegate, UITableViewDataSource {
         return 150.0
     }
     
+}
+
+extension ProductsView: ProductsViewContract {
+    func enableCheckoutButton(enabled: Bool) {
+        DispatchQueue.main.async {
+            self.checkoutButton.isEnabled = enabled
+        }
+    }
 }

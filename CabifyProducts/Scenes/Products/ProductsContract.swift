@@ -10,7 +10,9 @@ import Combine
 
 protocol ProductsWireframe: ProductDetailOpener, CheckoutOpener {}
 
-protocol ProductsViewContract: ReloadAwareView {}
+protocol ProductsViewContract: ReloadAwareView {
+    func enableCheckoutButton(enabled: Bool)
+}
 
 protocol ProductsPresenterContract {
     var view: ProductsViewContract? { get set }

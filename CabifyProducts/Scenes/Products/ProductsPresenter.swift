@@ -25,7 +25,6 @@ class ProductsPresenter {
         self.wireframe = wireframe
         self.interactor = interactor
         self.router = router
-        
         NotificationCenter.default.addObserver(self, selector: #selector(handleItemPriceNotification(_:)), name: productNotification, object: nil)
     }
     
@@ -52,6 +51,12 @@ class ProductsPresenter {
         if let index = products.firstIndex(where: { $0.code == productCode }) {
             products[index].quantity = newQuantity
         }
+        configureCheckoutButton(products: products)
+    }
+    
+    func configureCheckoutButton(products: [ProductViewModel]) {
+        let totalProductsToBuy = products.reduce(0) { $0 + $1.quantity }
+        view?.enableCheckoutButton(enabled: totalProductsToBuy > 0)
     }
     
 }
