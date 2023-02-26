@@ -13,7 +13,7 @@ protocol CheckoutViewContract {}
 
 protocol CheckoutPresenterContract {
     var view: CheckoutViewContract? { get set }
-    var products: [ProductViewModel] { get }
+    var totalPrice: Double { get }
 }
 
 protocol CheckoutInteractorContract {}

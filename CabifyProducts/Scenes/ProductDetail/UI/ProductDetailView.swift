@@ -45,12 +45,12 @@ extension ProductDetailView: ProductDetailViewContract {
         productDescription.text = productViewModel.detail
         numberOfItems.text = "\(productViewModel.quantity)"
         guard let presenter = presenter else { return }
-        setBasketButton(with: presenter, viewModel: productViewModel)
+        setBasketButtonTitle(with: presenter, viewModel: productViewModel)
     }
 }
 
 private extension ProductDetailView {
-    func setBasketButton(with presenter: ProductDetailPresenterContract, viewModel: ProductViewModel) {
+    func setBasketButtonTitle(with presenter: ProductDetailPresenterContract, viewModel: ProductViewModel) {
         let title = presenter.quantity > 0 ?
                     "Add \(presenter.quantity) to basket · \(viewModel.finalPrice(quantityToBuy: presenter.quantity)) €" :
                     "Remove this item from the basket"

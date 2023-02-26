@@ -18,6 +18,7 @@ class ProductsView: UIViewController, CreatableView, ViewWithTable, ProductsView
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter?.view = self
+        title = "Products"
     }
     
 }
