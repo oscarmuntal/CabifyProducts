@@ -28,7 +28,7 @@ class ProductDetailPresenter {
         self.interactor = interactor
         self.router = router
         self.productViewModel = productViewModel
-        self.quantity = 1
+        self.quantity = productViewModel.quantity
     }
     
     var view: ProductDetailViewContract? {
@@ -42,12 +42,14 @@ extension ProductDetailPresenter: ProductDetailPresenterContract {
     func addOne() {
         if quantity < 100 {
             quantity += 1
+            productViewModel.quantity = quantity
         }
     }
     
     func substractOne() {
         if quantity > 0 {
             quantity -= 1
+            productViewModel.quantity = quantity
         }
     }
     
@@ -55,20 +57,15 @@ extension ProductDetailPresenter: ProductDetailPresenterContract {
         router?.closeModalScreen(viewController)
     }
     
-    func postSelectedItemsAndTotalPrice() {
-        let quantityNotificationName = Notification.Name("selected items from \(productViewModel.name)")
-        let quantityNotificationObject = ["quantity": quantity]
-        NotificationCenter.default.post(name: quantityNotificationName, object: quantity, userInfo: quantityNotificationObject)
-        
-        let totalPriceNotificationObject = ["item" : productViewModel.name, "totalPrice" : totalPrice] as [String : Any]
-        NotificationCenter.default.post(name: totalPriceNotificationName, object: nil, userInfo: totalPriceNotificationObject)
+    func postSelectedItems() {
+        let newQuantityNotificationObject = ["code" : productViewModel.code, "quantity": quantity] as [String : Any]
+        NotificationCenter.default.post(name: productNotification, object: nil, userInfo: newQuantityNotificationObject)
     }
 }
 
 private extension ProductDetailPresenter {
     func setupView() {
         DispatchQueue.main.async {
-            self.view?.setQuantity(with: self.quantity)
             self.view?.configure(with: self.productViewModel)
         }
     }

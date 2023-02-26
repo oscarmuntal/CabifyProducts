@@ -11,7 +11,6 @@ import Combine
 protocol ProductDetailWireframe {}
 
 protocol ProductDetailViewContract {
-    func setQuantity(with quantity: Int)
     func configure(with productViewModel: ProductViewModel)
 }
 
@@ -23,7 +22,7 @@ protocol ProductDetailPresenterContract {
     func addOne()
     func substractOne()
     func closeModalScreen(_ viewController: UIViewController)
-    func postSelectedItemsAndTotalPrice()
+    func postSelectedItems()
 }
 
 protocol ProductDetailInteractorContract {}

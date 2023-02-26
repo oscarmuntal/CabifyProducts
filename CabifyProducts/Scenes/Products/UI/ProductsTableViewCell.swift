@@ -20,18 +20,8 @@ class ProductsTableViewCell: UITableViewCell {
         price.text = "\(viewModel.price) €"
         detail.text = viewModel.detail
         productImage.image = UIImage(named: viewModel.imageName)
-        badge.isHidden = true
-        badgeNumber.text = ""
-        let notificationName = Notification.Name("selected items from \(viewModel.name)")
-        NotificationCenter.default.addObserver(self, selector: #selector(handleNotification(_:)), name: notificationName, object: nil)
-    }
-    
-    @objc func handleNotification(_ notification: Notification) {
-        guard let userInfo = notification.userInfo as? [String : Any],
-              let quantity = userInfo["quantity"] as? Int else { return }
-        badgeNumber.text = quantity == 0 ? "" : "\(quantity)"
-        badge.isHidden = quantity == 0 ? true : false
-        
+        badgeNumber.text = viewModel.quantity == 0 ? "" : "\(viewModel.quantity)"
+        badge.isHidden = viewModel.quantity == 0 ? true : false
     }
 
 }

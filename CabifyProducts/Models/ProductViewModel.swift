@@ -9,12 +9,13 @@ import Foundation
 import CoreText
 
 struct ProductViewModel {
+    let code: String
     let name: String
     let price: Double
     let detail: String
     let imageName: String
-
     let promotion: Promotion
+    var quantity: Int = 0
     
     func finalPrice(quantityToBuy: Int) -> Double {
         switch promotion.type {

@@ -7,4 +7,4 @@
 
 import Foundation
 
-let totalPriceNotificationName = Notification.Name("total item's price")
+let productNotification = Notification.Name("total item's price")

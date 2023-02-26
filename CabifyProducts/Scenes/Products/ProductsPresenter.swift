@@ -9,6 +9,12 @@ import Foundation
 import Combine
 import UIKit
 
+struct Item {
+    let name: String
+    let quantity: Int
+    let totalPrice: Double
+}
+
 class ProductsPresenter {
     public let wireframe: ProductsWireframe?
     public let interactor: ProductsInteractorContract?
@@ -20,7 +26,7 @@ class ProductsPresenter {
         self.interactor = interactor
         self.router = router
         
-        NotificationCenter.default.addObserver(self, selector: #selector(handleItemPriceNotification(_:)), name: totalPriceNotificationName, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(handleItemPriceNotification(_:)), name: productNotification, object: nil)
     }
     
     public var view: ProductsViewContract? {
@@ -29,7 +35,7 @@ class ProductsPresenter {
         }
     }
     
-    internal var products = [Product]() {
+    internal var products = [ProductViewModel]() {
         didSet {
             view?.reload()
         }
@@ -37,10 +43,17 @@ class ProductsPresenter {
     
     @objc func handleItemPriceNotification(_ notification: Notification) {
         guard let userInfo = notification.userInfo as? [String : Any],
-              let itemName = userInfo["item"] as? String,
-              let totalPrice = userInfo["totalPrice"] as? Double else { return }
-        print("⭐️ item: \(itemName) has a total price of \(totalPrice)")
+              let itemCode = userInfo["code"] as? String,
+              let quantity = userInfo["quantity"] as? Int else { return }
+        updateQuantity(for: itemCode, to: quantity, in: &products)
     }
+    
+    func updateQuantity(for productCode: String, to newQuantity: Int, in products: inout [ProductViewModel]) {
+        if let index = products.firstIndex(where: { $0.code == productCode }) {
+            products[index].quantity = newQuantity
+        }
+    }
+    
 }
 
 extension ProductsPresenter: ProductsPresenterContract {
@@ -49,12 +62,11 @@ extension ProductsPresenter: ProductsPresenterContract {
     }
     
     func cellViewModel(at indexPath: IndexPath) -> ProductViewModel {
-        products[indexPath.row].toViewModel
+        products[indexPath.row]
     }
     
     func didSelectItem(at indexPath: IndexPath, from viewController: UIViewController) {
-        let product = products[indexPath.row]
-        router?.didSelect(productViewModel: product.toViewModel, from: viewController)
+        router?.didSelect(productViewModel: products[indexPath.row], from: viewController)
     }
 }
 
@@ -70,7 +82,9 @@ private extension ProductsPresenter {
                 }
             } receiveValue: { [weak self] productsDataModel in
                 print(productsDataModel.products)
-                self?.products.append(contentsOf: productsDataModel.products)
+                productsDataModel.products.forEach { product in
+                    self?.products.append(product.toViewModel)
+                }
             }.store(in: &cancellables)
     }
 }
