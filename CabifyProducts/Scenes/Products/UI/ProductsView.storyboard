@@ -127,7 +127,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="2gZ-BP-A8J">
-                        <barButtonItem key="rightBarButtonItem" title="Checkout" id="tJV-YH-vgV"/>
+                        <barButtonItem key="rightBarButtonItem" title="Checkout" id="tJV-YH-vgV">
+                            <connections>
+                                <action selector="checkoutTapped:" destination="Y6W-OH-hqX" id="lt7-iJ-0pq"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="yoo-dH-5Bt" id="NcP-Mr-5zl"/>

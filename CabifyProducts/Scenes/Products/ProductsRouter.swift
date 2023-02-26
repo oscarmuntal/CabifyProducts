@@ -19,4 +19,8 @@ extension ProductsRouter: ProductsRouterContract {
     func didSelect(productViewModel: ProductViewModel, from viewController: UIViewController) {
         wireframe.openProductDetail(with: productViewModel, from: viewController)
     }
+    
+    func navigateToCheckout(products: [ProductViewModel]) {
+        wireframe.openCheckout(with: products)
+    }
 }

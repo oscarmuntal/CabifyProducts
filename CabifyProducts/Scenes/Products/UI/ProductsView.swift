@@ -9,6 +9,9 @@ import UIKit
 
 class ProductsView: UIViewController, CreatableView, ViewWithTable, ProductsViewContract {
     @IBOutlet weak var tableView: UITableView!
+    @IBAction func checkoutTapped(_ sender: Any) {
+        presenter?.checkoutTapped()
+    }
     var table: UITableView { tableView }
     var presenter: ProductsPresenterContract?
     

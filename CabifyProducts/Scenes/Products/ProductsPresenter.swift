@@ -68,6 +68,10 @@ extension ProductsPresenter: ProductsPresenterContract {
     func didSelectItem(at indexPath: IndexPath, from viewController: UIViewController) {
         router?.didSelect(productViewModel: products[indexPath.row], from: viewController)
     }
+    
+    func checkoutTapped() {
+        router?.navigateToCheckout(products: products)
+    }
 }
 
 private extension ProductsPresenter {
