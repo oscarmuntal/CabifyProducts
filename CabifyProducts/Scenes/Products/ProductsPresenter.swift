@@ -26,6 +26,7 @@ class ProductsPresenter {
         self.interactor = interactor
         self.router = router
         NotificationCenter.default.addObserver(self, selector: #selector(handleItemPriceNotification(_:)), name: productNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(handleResetItemsNotification), name: resetItemsNotification, object: nil)
     }
     
     public var view: ProductsViewContract? {
@@ -39,7 +40,9 @@ class ProductsPresenter {
             view?.reload()
         }
     }
-    
+}
+
+extension ProductsPresenter {
     @objc func handleItemPriceNotification(_ notification: Notification) {
         guard let userInfo = notification.userInfo as? [String : Any],
               let itemCode = userInfo["code"] as? String,
@@ -59,6 +62,14 @@ class ProductsPresenter {
         view?.enableCheckoutButton(enabled: totalProductsToBuy > 0)
     }
     
+    @objc func handleResetItemsNotification() {
+        let newProducts = products.map { (product: ProductViewModel) -> ProductViewModel in
+            var newProduct = product
+            newProduct.quantity = 0
+            return newProduct
+        }
+        products = newProducts
+    }
 }
 
 extension ProductsPresenter: ProductsPresenterContract {

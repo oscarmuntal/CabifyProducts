@@ -5,7 +5,7 @@
 //  Created by Òscar Muntal on 26/2/23.
 //
 
-import Foundation
+import UIKit
 
 class CheckoutPresenter: CheckoutPresenterContract {
     var view: CheckoutViewContract?
@@ -21,5 +21,11 @@ class CheckoutPresenter: CheckoutPresenterContract {
         self.router = router
         self.products = products.filter { $0.quantity > 0 }
         self.totalPrice = products.reduce(0) { $0 + $1.finalPrice(quantityToBuy: $1.quantity) }
+    }
+    
+    func payButtonTapped() {
+        guard let viewController = view as? UIViewController else { return }
+        router.presentPurchaseAlert(from: viewController)
+        NotificationCenter.default.post(name: resetItemsNotification, object: nil)
     }
 }

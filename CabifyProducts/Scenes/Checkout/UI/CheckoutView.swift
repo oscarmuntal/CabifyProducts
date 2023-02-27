@@ -8,14 +8,13 @@
 import UIKit
 
 class CheckoutView: UIViewController, CreatableView, ViewWithTable, CheckoutViewContract {
-
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var subtotal: UILabel!
     @IBOutlet weak var shipping: UILabel!
     @IBOutlet weak var total: UILabel!
     @IBOutlet weak var payButton: UIButton!
     @IBAction func payButtonTapped(_ sender: Any) {
-        print("tá tó pagao!")
+        presenter?.payButtonTapped()
     }
     var presenter: CheckoutPresenterContract?
     var table: UITableView { tableView }
