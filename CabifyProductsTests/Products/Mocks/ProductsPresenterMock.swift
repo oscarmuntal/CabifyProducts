@@ -15,9 +15,11 @@ class ProductsPresenterMock: ProductsPresenterContract {
     var cellViewModelCalled = false
     var didSelectItemCalled = false
     var checkoutTappedCalled = false
+    var configureCheckoutButtonCalled = false
     var productViewModel: ProductViewModel = defaultProductViewModel
     var indexPath: IndexPath = IndexPath(row: 0, section: 0)
     var didSelectItemViewController: UIViewController = UIViewController()
+    var products: [ProductViewModel] = []
     
     func numProducts() -> Int {
         numProductsCalled = true
@@ -37,5 +39,9 @@ class ProductsPresenterMock: ProductsPresenterContract {
     
     func checkoutTapped() {
         checkoutTappedCalled = true
+    }
+    
+    func configureCheckoutButton() {
+        configureCheckoutButtonCalled = true
     }
 }

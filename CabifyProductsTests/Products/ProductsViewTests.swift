@@ -57,16 +57,17 @@ class ProductsViewTests: XCTestCase {
         XCTAssertEqual(sut.title, "Products")
     }
     
-    func testViewDidLoadShouldDisableCheckoutButton() {
+    
+    func testViewWillAppearShouldCallConfigureCheckoutButton() {
         // Given
         sut.presenter = presenter
         sut.tableView = tableView
         
         // When
-        self.sut.viewDidLoad()
+        sut.viewWillAppear(true)
         
         // Then
-        XCTAssertFalse(self.sut.checkoutButton.isEnabled)
+        XCTAssertTrue(presenter.configureCheckoutButtonCalled)
     }
     
     func testTableViewNumberOfRowsInSectionShouldReturnNumProducts() {
