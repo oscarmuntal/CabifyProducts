@@ -33,36 +33,6 @@ class ProductsPresenter {
     }
 }
 
-private extension ProductsPresenter {
-    @objc func handleItemPriceNotification(_ notification: Notification) {
-        guard let userInfo = notification.userInfo as? [String : Any],
-              let itemCode = userInfo["code"] as? String,
-              let quantity = userInfo["quantity"] as? Int else { return }
-        updateQuantity(for: itemCode, to: quantity, in: &products)
-    }
-    
-    func updateQuantity(for productCode: String, to newQuantity: Int, in products: inout [ProductViewModel]) {
-        if let index = products.firstIndex(where: { $0.code == productCode }) {
-            products[index].quantity = newQuantity
-        }
-        configureCheckoutButton(products: products)
-    }
-    
-    func configureCheckoutButton(products: [ProductViewModel]) {
-        let totalProductsToBuy = products.reduce(0) { $0 + $1.quantity }
-        view?.enableCheckoutButton(enabled: totalProductsToBuy > 0)
-    }
-    
-    @objc func handleResetItemsNotification() {
-        let newProducts = products.map { (product: ProductViewModel) -> ProductViewModel in
-            var newProduct = product
-            newProduct.quantity = 0
-            return newProduct
-        }
-        products = newProducts
-    }
-}
-
 extension ProductsPresenter: ProductsPresenterContract {
     func numProducts() -> Int {
         products.count
@@ -100,5 +70,35 @@ private extension ProductsPresenter {
                     self?.products.append(product.toViewModel)
                 }
             }.store(in: &cancellables)
+    }
+}
+
+private extension ProductsPresenter {
+    @objc func handleItemPriceNotification(_ notification: Notification) {
+        guard let userInfo = notification.userInfo as? [String : Any],
+              let itemCode = userInfo["code"] as? String,
+              let quantity = userInfo["quantity"] as? Int else { return }
+        updateQuantity(for: itemCode, to: quantity, in: &products)
+    }
+    
+    func updateQuantity(for productCode: String, to newQuantity: Int, in products: inout [ProductViewModel]) {
+        if let index = products.firstIndex(where: { $0.code == productCode }) {
+            products[index].quantity = newQuantity
+        }
+        configureCheckoutButton(products: products)
+    }
+    
+    func configureCheckoutButton(products: [ProductViewModel]) {
+        let totalProductsToBuy = products.reduce(0) { $0 + $1.quantity }
+        view?.enableCheckoutButton(enabled: totalProductsToBuy > 0)
+    }
+    
+    @objc func handleResetItemsNotification() {
+        let newProducts = products.map { (product: ProductViewModel) -> ProductViewModel in
+            var newProduct = product
+            newProduct.quantity = 0
+            return newProduct
+        }
+        products = newProducts
     }
 }

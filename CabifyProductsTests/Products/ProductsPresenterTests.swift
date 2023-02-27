@@ -145,5 +145,4 @@ class ProductsPresenterTests: XCTestCase {
         XCTAssertEqual(self.sut.products[0].detail, "Wonderful and excusive mugs, designed by special artists")
         XCTAssertEqual(self.sut.products[0].imageName, "mug")
     }
-    
 }
