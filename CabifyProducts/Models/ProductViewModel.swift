@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import CoreText
 
 struct ProductViewModel {
     let code: String

@@ -46,6 +46,7 @@
 		1FD78C1329A59CBE002588F9 /* ProductsView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FD78C1229A59CBE002588F9 /* ProductsView.storyboard */; };
 		1FD78C1629A59D44002588F9 /* RootWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD78C1529A59D44002588F9 /* RootWireframe.swift */; };
 		1FD78C1829A59D84002588F9 /* WireframeProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD78C1729A59D84002588F9 /* WireframeProtocols.swift */; };
+		1FDC5CFC29ACF73100EAC828 /* ProductsPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDC5CFB29ACF73100EAC828 /* ProductsPresenterTests.swift */; };
 		1FFD0D1F29AC3E2200BC9E66 /* ProductsViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFD0D1E29AC3E2200BC9E66 /* ProductsViewTests.swift */; };
 		1FFD0D2329AC5CC600BC9E66 /* ProductsPresenterMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFD0D2229AC5CC600BC9E66 /* ProductsPresenterMock.swift */; };
 		1FFD0D2529AC5CF000BC9E66 /* UITableViewMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFD0D2429AC5CF000BC9E66 /* UITableViewMock.swift */; };
@@ -105,6 +106,7 @@
 		1FD78C1229A59CBE002588F9 /* ProductsView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProductsView.storyboard; sourceTree = "<group>"; };
 		1FD78C1529A59D44002588F9 /* RootWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootWireframe.swift; sourceTree = "<group>"; };
 		1FD78C1729A59D84002588F9 /* WireframeProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WireframeProtocols.swift; sourceTree = "<group>"; };
+		1FDC5CFB29ACF73100EAC828 /* ProductsPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsPresenterTests.swift; sourceTree = "<group>"; };
 		1FFD0D1329AC3D6E00BC9E66 /* CabifyProductsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CabifyProductsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FFD0D1D29AC3E2100BC9E66 /* CabifyProductsTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CabifyProductsTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		1FFD0D1E29AC3E2200BC9E66 /* ProductsViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsViewTests.swift; sourceTree = "<group>"; };
@@ -320,6 +322,7 @@
 		1FFD0D1C29AC3DAB00BC9E66 /* Products */ = {
 			isa = PBXGroup;
 			children = (
+				1FDC5CFB29ACF73100EAC828 /* ProductsPresenterTests.swift */,
 				1FFD0D1E29AC3E2200BC9E66 /* ProductsViewTests.swift */,
 				1FFD0D1D29AC3E2100BC9E66 /* CabifyProductsTests-Bridging-Header.h */,
 				1FFD0D2029AC5C9200BC9E66 /* Mocks */,
@@ -493,6 +496,7 @@
 			files = (
 				1FFD0D2329AC5CC600BC9E66 /* ProductsPresenterMock.swift in Sources */,
 				1FFD0D1F29AC3E2200BC9E66 /* ProductsViewTests.swift in Sources */,
+				1FDC5CFC29ACF73100EAC828 /* ProductsPresenterTests.swift in Sources */,
 				1FFD0D2529AC5CF000BC9E66 /* UITableViewMock.swift in Sources */,
 				1FFD0D2A29AC5D6100BC9E66 /* HelpersAndConstants.swift in Sources */,
 				1FFD0D2729AC5D2600BC9E66 /* ProductsTableViewCellMock.swift in Sources */,
