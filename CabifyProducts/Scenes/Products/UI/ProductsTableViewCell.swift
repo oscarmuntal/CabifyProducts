@@ -16,12 +16,11 @@ class ProductsTableViewCell: UITableViewCell {
     @IBOutlet weak var badgeNumber: UILabel!
     
     func configure(with viewModel: ProductViewModel) {
-        name.text = viewModel.name
-        price.text = "\(viewModel.price) €"
-        detail.text = viewModel.detail
-        productImage.image = UIImage(named: viewModel.imageName)
-        badgeNumber.text = viewModel.quantity == 0 ? "" : "\(viewModel.quantity)"
-        badge.isHidden = viewModel.quantity == 0 ? true : false
+        name?.text = viewModel.name
+        price?.text = "\(viewModel.price) €"
+        detail?.text = viewModel.detail
+        productImage?.image = UIImage(named: viewModel.imageName)
+        badgeNumber?.text = viewModel.quantity == 0 ? "" : "\(viewModel.quantity)"
+        badge?.isHidden = viewModel.quantity == 0 ? true : false
     }
-
 }

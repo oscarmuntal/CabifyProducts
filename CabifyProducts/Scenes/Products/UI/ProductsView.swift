@@ -23,12 +23,14 @@ class ProductsView: UIViewController, CreatableView, ViewWithTable {
         setup()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        presenter?.configureCheckoutButton()
+    }
+    
     func setup() {
         presenter?.view = self
-        DispatchQueue.main.async {
-            self.title = "Products"
-            self.checkoutButton.isEnabled = false
-        }
+        title = "Products"
+        checkoutButton?.isEnabled = false
     }
 }
 
@@ -58,7 +60,7 @@ extension ProductsView: UITableViewDelegate, UITableViewDataSource {
 extension ProductsView: ProductsViewContract {
     func enableCheckoutButton(enabled: Bool) {
         DispatchQueue.main.async {
-            self.checkoutButton.isEnabled = enabled
+            self.checkoutButton?.isEnabled = enabled
         }
     }
 }

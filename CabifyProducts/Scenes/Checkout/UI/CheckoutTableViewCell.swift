@@ -17,6 +17,6 @@ class CheckoutTableViewCell: UITableViewCell {
         productImage.image = UIImage(named: viewModel.imageName)
         nameLabel.text = viewModel.name
         quantityLabel.text = "\(viewModel.quantity) x \(viewModel.code)"
-        totalPriceLabel.text = "\(viewModel.finalPrice(quantityToBuy: viewModel.quantity)) €"
+        totalPriceLabel.text = "\(viewModel.finalPrice) €"
     }
 }

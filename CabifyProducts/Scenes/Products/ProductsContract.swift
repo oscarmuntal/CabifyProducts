@@ -20,6 +20,7 @@ protocol ProductsPresenterContract {
     func cellViewModel(at indexPath: IndexPath) -> ProductViewModel
     func didSelectItem(at indexPath: IndexPath, from viewController: UIViewController)
     func checkoutTapped()
+    func configureCheckoutButton()
 }
 
 protocol ProductsInteractorContract {

@@ -20,7 +20,7 @@ class ProductDetailPresenter {
         }
     }
     public var totalPrice: Double {
-        productViewModel.finalPrice(quantityToBuy: quantity)
+        productViewModel.finalPrice
     }
     
     init(wireframe: ProductDetailWireframe, interactor: ProductDetailInteractorContract, router: ProductDetailRouterContract, productViewModel: ProductViewModel) {

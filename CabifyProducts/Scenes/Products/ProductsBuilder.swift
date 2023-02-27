@@ -17,7 +17,7 @@ protocol ProductsBuilderContract: Builder {
 
 extension ProductsBuilderContract {
     func buildPresenter() -> ProductsPresenterContract {
-        ProductsPresenter(wireframe: wireframe, interactor: buildInteractor(), router: buildRouter())
+        ProductsPresenter(interactor: buildInteractor(), router: buildRouter())
     }
 
     func buildInteractor() -> ProductsInteractorContract {

@@ -20,7 +20,7 @@ class CheckoutPresenter: CheckoutPresenterContract {
         self.interactor = interactor
         self.router = router
         self.products = products.filter { $0.quantity > 0 }
-        self.totalPrice = products.reduce(0) { $0 + $1.finalPrice(quantityToBuy: $1.quantity) }
+        self.totalPrice = products.reduce(0) { $0 + $1.finalPrice }
     }
     
     func payButtonTapped() {

@@ -17,20 +17,20 @@ struct ProductViewModel {
     let promotion: Promotion
     var quantity: Int = 0
     
-    func finalPrice(quantityToBuy: Int) -> Double {
+    var finalPrice: Double {
         switch promotion.type {
         case .buyXGetZFree:
-            let promotions = quantityToBuy/promotion.amountToBuy
+            let promotions = quantity/promotion.amountToBuy
             let totalFreeItems = promotions * (promotion.amountFree ?? 0)
-            let totalItemsToPay = quantityToBuy - totalFreeItems
+            let totalItemsToPay = quantity - totalFreeItems
             return Double(totalItemsToPay) * price
         case .bulk:
-            if quantityToBuy >= promotion.amountToBuy {
-                return Double(quantityToBuy) * (promotion.priceWithDiscount ?? 0.0)
+            if quantity >= promotion.amountToBuy {
+                return Double(quantity) * (promotion.priceWithDiscount ?? 0.0)
             }
-            return Double(quantityToBuy) * price
+            return Double(quantity) * price
         default:
-            return Double(quantityToBuy) * price
+            return Double(quantity) * price
         }
     }
 }

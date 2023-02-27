@@ -46,7 +46,22 @@
 		1FD78C1329A59CBE002588F9 /* ProductsView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FD78C1229A59CBE002588F9 /* ProductsView.storyboard */; };
 		1FD78C1629A59D44002588F9 /* RootWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD78C1529A59D44002588F9 /* RootWireframe.swift */; };
 		1FD78C1829A59D84002588F9 /* WireframeProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD78C1729A59D84002588F9 /* WireframeProtocols.swift */; };
+		1FFD0D1F29AC3E2200BC9E66 /* ProductsViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFD0D1E29AC3E2200BC9E66 /* ProductsViewTests.swift */; };
+		1FFD0D2329AC5CC600BC9E66 /* ProductsPresenterMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFD0D2229AC5CC600BC9E66 /* ProductsPresenterMock.swift */; };
+		1FFD0D2529AC5CF000BC9E66 /* UITableViewMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFD0D2429AC5CF000BC9E66 /* UITableViewMock.swift */; };
+		1FFD0D2729AC5D2600BC9E66 /* ProductsTableViewCellMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFD0D2629AC5D2600BC9E66 /* ProductsTableViewCellMock.swift */; };
+		1FFD0D2A29AC5D6100BC9E66 /* HelpersAndConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFD0D2929AC5D6100BC9E66 /* HelpersAndConstants.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1FFD0D1729AC3D6E00BC9E66 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1FD78BD429A55521002588F9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1FD78BDB29A55521002588F9;
+			remoteInfo = CabifyProducts;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		1F0839C729A9895100691274 /* NotificationsConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsConstants.swift; sourceTree = "<group>"; };
@@ -90,10 +105,24 @@
 		1FD78C1229A59CBE002588F9 /* ProductsView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProductsView.storyboard; sourceTree = "<group>"; };
 		1FD78C1529A59D44002588F9 /* RootWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootWireframe.swift; sourceTree = "<group>"; };
 		1FD78C1729A59D84002588F9 /* WireframeProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WireframeProtocols.swift; sourceTree = "<group>"; };
+		1FFD0D1329AC3D6E00BC9E66 /* CabifyProductsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CabifyProductsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1FFD0D1D29AC3E2100BC9E66 /* CabifyProductsTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CabifyProductsTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		1FFD0D1E29AC3E2200BC9E66 /* ProductsViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsViewTests.swift; sourceTree = "<group>"; };
+		1FFD0D2229AC5CC600BC9E66 /* ProductsPresenterMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsPresenterMock.swift; sourceTree = "<group>"; };
+		1FFD0D2429AC5CF000BC9E66 /* UITableViewMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewMock.swift; sourceTree = "<group>"; };
+		1FFD0D2629AC5D2600BC9E66 /* ProductsTableViewCellMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsTableViewCellMock.swift; sourceTree = "<group>"; };
+		1FFD0D2929AC5D6100BC9E66 /* HelpersAndConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpersAndConstants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		1FD78BD929A55521002588F9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1FFD0D1029AC3D6E00BC9E66 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -175,6 +204,7 @@
 			isa = PBXGroup;
 			children = (
 				1FD78BDE29A55521002588F9 /* CabifyProducts */,
+				1FFD0D1429AC3D6E00BC9E66 /* CabifyProductsTests */,
 				1FD78BDD29A55521002588F9 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -183,6 +213,7 @@
 			isa = PBXGroup;
 			children = (
 				1FD78BDC29A55521002588F9 /* CabifyProducts.app */,
+				1FFD0D1329AC3D6E00BC9E66 /* CabifyProductsTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -278,6 +309,43 @@
 			path = Wireframes;
 			sourceTree = "<group>";
 		};
+		1FFD0D1429AC3D6E00BC9E66 /* CabifyProductsTests */ = {
+			isa = PBXGroup;
+			children = (
+				1FFD0D1C29AC3DAB00BC9E66 /* Products */,
+			);
+			path = CabifyProductsTests;
+			sourceTree = "<group>";
+		};
+		1FFD0D1C29AC3DAB00BC9E66 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1FFD0D1E29AC3E2200BC9E66 /* ProductsViewTests.swift */,
+				1FFD0D1D29AC3E2100BC9E66 /* CabifyProductsTests-Bridging-Header.h */,
+				1FFD0D2029AC5C9200BC9E66 /* Mocks */,
+				1FFD0D2829AC5D3F00BC9E66 /* Helpers & Constants */,
+			);
+			path = Products;
+			sourceTree = "<group>";
+		};
+		1FFD0D2029AC5C9200BC9E66 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				1FFD0D2229AC5CC600BC9E66 /* ProductsPresenterMock.swift */,
+				1FFD0D2429AC5CF000BC9E66 /* UITableViewMock.swift */,
+				1FFD0D2629AC5D2600BC9E66 /* ProductsTableViewCellMock.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		1FFD0D2829AC5D3F00BC9E66 /* Helpers & Constants */ = {
+			isa = PBXGroup;
+			children = (
+				1FFD0D2929AC5D6100BC9E66 /* HelpersAndConstants.swift */,
+			);
+			path = "Helpers & Constants";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -298,6 +366,24 @@
 			productReference = 1FD78BDC29A55521002588F9 /* CabifyProducts.app */;
 			productType = "com.apple.product-type.application";
 		};
+		1FFD0D1229AC3D6E00BC9E66 /* CabifyProductsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1FFD0D1B29AC3D6E00BC9E66 /* Build configuration list for PBXNativeTarget "CabifyProductsTests" */;
+			buildPhases = (
+				1FFD0D0F29AC3D6E00BC9E66 /* Sources */,
+				1FFD0D1029AC3D6E00BC9E66 /* Frameworks */,
+				1FFD0D1129AC3D6E00BC9E66 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1FFD0D1829AC3D6E00BC9E66 /* PBXTargetDependency */,
+			);
+			name = CabifyProductsTests;
+			productName = CabifyProductsTests;
+			productReference = 1FFD0D1329AC3D6E00BC9E66 /* CabifyProductsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -310,6 +396,11 @@
 				TargetAttributes = {
 					1FD78BDB29A55521002588F9 = {
 						CreatedOnToolsVersion = 13.2.1;
+					};
+					1FFD0D1229AC3D6E00BC9E66 = {
+						CreatedOnToolsVersion = 13.2.1;
+						LastSwiftMigration = 1320;
+						TestTargetID = 1FD78BDB29A55521002588F9;
 					};
 				};
 			};
@@ -327,6 +418,7 @@
 			projectRoot = "";
 			targets = (
 				1FD78BDB29A55521002588F9 /* CabifyProducts */,
+				1FFD0D1229AC3D6E00BC9E66 /* CabifyProductsTests */,
 			);
 		};
 /* End PBXProject section */
@@ -341,6 +433,13 @@
 				1FD78C1329A59CBE002588F9 /* ProductsView.storyboard in Resources */,
 				1F335D8429A6BFA5004B3B68 /* ProductDetailView.storyboard in Resources */,
 				1FD78BE929A55525002588F9 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1FFD0D1129AC3D6E00BC9E66 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -388,7 +487,27 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		1FFD0D0F29AC3D6E00BC9E66 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1FFD0D2329AC5CC600BC9E66 /* ProductsPresenterMock.swift in Sources */,
+				1FFD0D1F29AC3E2200BC9E66 /* ProductsViewTests.swift in Sources */,
+				1FFD0D2529AC5CF000BC9E66 /* UITableViewMock.swift in Sources */,
+				1FFD0D2A29AC5D6100BC9E66 /* HelpersAndConstants.swift in Sources */,
+				1FFD0D2729AC5D2600BC9E66 /* ProductsTableViewCellMock.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1FFD0D1829AC3D6E00BC9E66 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1FD78BDB29A55521002588F9 /* CabifyProducts */;
+			targetProxy = 1FFD0D1729AC3D6E00BC9E66 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		1FD78BEA29A55525002588F9 /* LaunchScreen.storyboard */ = {
@@ -576,6 +695,57 @@
 			};
 			name = Release;
 		};
+		1FFD0D1929AC3D6E00BC9E66 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Q9RJPHW4B8;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.muntalapps.CabifyProductsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "CabifyProductsTests/Products/CabifyProductsTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CabifyProducts.app/CabifyProducts";
+			};
+			name = Debug;
+		};
+		1FFD0D1A29AC3D6E00BC9E66 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Q9RJPHW4B8;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.muntalapps.CabifyProductsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "CabifyProductsTests/Products/CabifyProductsTests-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CabifyProducts.app/CabifyProducts";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -593,6 +763,15 @@
 			buildConfigurations = (
 				1FD78BF129A55525002588F9 /* Debug */,
 				1FD78BF229A55525002588F9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1FFD0D1B29AC3D6E00BC9E66 /* Build configuration list for PBXNativeTarget "CabifyProductsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1FFD0D1929AC3D6E00BC9E66 /* Debug */,
+				1FFD0D1A29AC3D6E00BC9E66 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

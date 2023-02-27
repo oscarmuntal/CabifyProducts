@@ -5,24 +5,15 @@
 //  Created by Òscar Muntal on 22/2/23.
 //
 
-import Foundation
 import Combine
 import UIKit
 
-struct Item {
-    let name: String
-    let quantity: Int
-    let totalPrice: Double
-}
-
 class ProductsPresenter {
-    public let wireframe: ProductsWireframe?
-    public let interactor: ProductsInteractorContract?
-    public let router: ProductsRouterContract?
+    public let interactor: ProductsInteractorContract
+    public let router: ProductsRouterContract
     private var cancellables: Set<AnyCancellable> = []
     
-    init(wireframe: ProductsWireframe, interactor: ProductsInteractorContract, router: ProductsRouterContract) {
-        self.wireframe = wireframe
+    init(interactor: ProductsInteractorContract, router: ProductsRouterContract) {
         self.interactor = interactor
         self.router = router
         NotificationCenter.default.addObserver(self, selector: #selector(handleItemPriceNotification(_:)), name: productNotification, object: nil)
@@ -42,7 +33,7 @@ class ProductsPresenter {
     }
 }
 
-extension ProductsPresenter {
+private extension ProductsPresenter {
     @objc func handleItemPriceNotification(_ notification: Notification) {
         guard let userInfo = notification.userInfo as? [String : Any],
               let itemCode = userInfo["code"] as? String,
@@ -82,17 +73,20 @@ extension ProductsPresenter: ProductsPresenterContract {
     }
     
     func didSelectItem(at indexPath: IndexPath, from viewController: UIViewController) {
-        router?.didSelect(productViewModel: products[indexPath.row], from: viewController)
+        router.didSelect(productViewModel: products[indexPath.row], from: viewController)
     }
     
     func checkoutTapped() {
-        router?.navigateToCheckout(products: products)
+        router.navigateToCheckout(products: products)
+    }
+    
+    func configureCheckoutButton() {
+        configureCheckoutButton(products: products)
     }
 }
 
 private extension ProductsPresenter {
     func loadProducts() {
-        guard let interactor = interactor else { return }
         interactor.fetchProducts()
             .sink { completion in
                 switch completion {
