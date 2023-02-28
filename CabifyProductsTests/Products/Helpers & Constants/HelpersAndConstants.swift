@@ -18,3 +18,8 @@ let voucherPromotion = Promotion(type: .buyXGetZFree, amountToBuy: 2, amountFree
 let voucherProductViewModel = ProductViewModel(code: "VOUCHER", name: "Voucher's name", price: 5.0, detail: "2-for-1 promotion!", imageName: "voucher", promotion: voucherPromotion, quantity: 0)
 
 let tshirtQuantityThreeProductViewModel = ProductViewModel(code: "TSHIRT", name: "T-shirt", price: 20.0, detail: "T-shirt detail 2", imageName: "tshirt", promotion: tshirtPromotion, quantity: 3)
+
+let defaultProduct = Product(code: "MUG", name: "Awesome Mug", price: 7.5)
+let defaultProductsResponse = Products(products: [defaultProduct])
+
+
