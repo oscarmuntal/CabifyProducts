@@ -55,6 +55,7 @@
 		1FDC5D0829AD730500EAC828 /* ProductsRouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDC5D0729AD730500EAC828 /* ProductsRouterTests.swift */; };
 		1FDC5D0A29AD782400EAC828 /* ProductsWireframeMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDC5D0929AD782400EAC828 /* ProductsWireframeMock.swift */; };
 		1FDC5D0C29AD795800EAC828 /* ProductsBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDC5D0B29AD795800EAC828 /* ProductsBuilderTests.swift */; };
+		1FDC5D0E29AD7C7A00EAC828 /* ProductsTableViewCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDC5D0D29AD7C7A00EAC828 /* ProductsTableViewCellTests.swift */; };
 		1FFD0D1F29AC3E2200BC9E66 /* ProductsViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFD0D1E29AC3E2200BC9E66 /* ProductsViewTests.swift */; };
 		1FFD0D2329AC5CC600BC9E66 /* ProductsPresenterMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFD0D2229AC5CC600BC9E66 /* ProductsPresenterMock.swift */; };
 		1FFD0D2529AC5CF000BC9E66 /* UITableViewMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFD0D2429AC5CF000BC9E66 /* UITableViewMock.swift */; };
@@ -123,6 +124,7 @@
 		1FDC5D0729AD730500EAC828 /* ProductsRouterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsRouterTests.swift; sourceTree = "<group>"; };
 		1FDC5D0929AD782400EAC828 /* ProductsWireframeMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsWireframeMock.swift; sourceTree = "<group>"; };
 		1FDC5D0B29AD795800EAC828 /* ProductsBuilderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsBuilderTests.swift; sourceTree = "<group>"; };
+		1FDC5D0D29AD7C7A00EAC828 /* ProductsTableViewCellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsTableViewCellTests.swift; sourceTree = "<group>"; };
 		1FFD0D1329AC3D6E00BC9E66 /* CabifyProductsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CabifyProductsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FFD0D1D29AC3E2100BC9E66 /* CabifyProductsTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CabifyProductsTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		1FFD0D1E29AC3E2200BC9E66 /* ProductsViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsViewTests.swift; sourceTree = "<group>"; };
@@ -346,6 +348,7 @@
 				1FFD0D1D29AC3E2100BC9E66 /* CabifyProductsTests-Bridging-Header.h */,
 				1FFD0D2029AC5C9200BC9E66 /* Mocks */,
 				1FFD0D2829AC5D3F00BC9E66 /* Helpers & Constants */,
+				1FDC5D0D29AD7C7A00EAC828 /* ProductsTableViewCellTests.swift */,
 			);
 			path = Products;
 			sourceTree = "<group>";
@@ -523,6 +526,7 @@
 				1FFD0D1F29AC3E2200BC9E66 /* ProductsViewTests.swift in Sources */,
 				1FDC5D0029AD4EDA00EAC828 /* ProductsRouterMock.swift in Sources */,
 				1FDC5D0229AD4F0200EAC828 /* ProductsViewMock.swift in Sources */,
+				1FDC5D0E29AD7C7A00EAC828 /* ProductsTableViewCellTests.swift in Sources */,
 				1FDC5D0429AD51B600EAC828 /* ProductsInteractorTests.swift in Sources */,
 				1FDC5CFE29AD4E9300EAC828 /* ProductsInteractorMock.swift in Sources */,
 				1FDC5D0629AD71A300EAC828 /* ProductsProviderMock.swift in Sources */,
