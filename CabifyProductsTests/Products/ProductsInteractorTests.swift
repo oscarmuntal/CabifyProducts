@@ -53,13 +53,13 @@ class ProductsInteractorTests: XCTestCase {
 
     func testFetchProductsFailure() {
         let expectation = self.expectation(description: "Fetch products should fail")
-        provider.result = .failure(NSError(domain: "TestError", code: 7, userInfo: nil))
+        provider.result = .failure(.other)
 
         sut.fetchProducts()
             .sink(receiveCompletion: { completion in
                 switch completion {
                 case .failure(let error):
-                    XCTAssertEqual(error.localizedDescription, "The operation couldn’t be completed. (TestError error 7.)")
+                    XCTAssertEqual(error.localizedDescription, "The operation couldn’t be completed. (CabifyProducts.CabifyError error 1.)")
                     expectation.fulfill()
                 case .finished:
                     XCTFail("Expected failure, but got success")

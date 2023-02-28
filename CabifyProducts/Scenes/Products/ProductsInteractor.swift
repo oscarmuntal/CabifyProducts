@@ -17,7 +17,7 @@ class ProductsInteractor {
 }
 
 extension ProductsInteractor: ProductsInteractorContract {
-    func fetchProducts() -> AnyPublisher<Products, Error> {
+    func fetchProducts() -> AnyPublisher<Products, CabifyError> {
         productsProvider.fetchProducts()
     }
 }

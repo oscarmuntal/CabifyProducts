@@ -8,6 +8,11 @@
 import Foundation
 import Combine
 
+enum CabifyError: Error {
+    case productsNotFound
+    case other
+}
+
 protocol ApiCall {
     var baseUrl: String? { get }
     var extraHeaders: [String: String]? { get }
@@ -35,14 +40,14 @@ enum ApiCabify: ApiCall {
 }
 
 protocol ApiRouting {
-    func requestDecodable<T: Decodable>(api: ApiCabify, _ completion: @escaping (Result<T, Error>) -> Void)
-    func requestDecodablePublisher<T: Decodable>(api: ApiCabify) -> AnyPublisher<T, Error>
+    func requestDecodable<T: Decodable>(api: ApiCabify, _ completion: @escaping (Result<T, CabifyError>) -> Void)
+    func requestDecodablePublisher<T: Decodable>(api: ApiCabify) -> AnyPublisher<T, CabifyError>
 }
 
 class ApiRouter: ApiRouting {
     public static let shared = ApiRouter()
     
-    func requestDecodable<T: Decodable>(api: ApiCabify, _ completion: @escaping (Result<T, Error>) -> Void) {
+    func requestDecodable<T: Decodable>(api: ApiCabify, _ completion: @escaping (Result<T, CabifyError>) -> Void) {
         guard let url = api.buildURL() else {
             print("Wrong URL")
             return
@@ -64,10 +69,10 @@ class ApiRouter: ApiRouting {
         }.resume()
     }
     
-    func requestDecodablePublisher<T: Decodable>(api: ApiCabify) -> AnyPublisher<T, Error> {
+    func requestDecodablePublisher<T: Decodable>(api: ApiCabify) -> AnyPublisher<T, CabifyError> {
         Deferred {
             Future { [weak self] promise in
-                self?.requestDecodable(api: api, { (result: Result<T, Error>) in
+                self?.requestDecodable(api: api, { (result: Result<T, CabifyError>) in
                     switch result {
                     case .success(let data):
                         promise(.success(data))

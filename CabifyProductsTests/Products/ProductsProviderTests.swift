@@ -25,9 +25,9 @@ class ProductsProviderTests: XCTestCase {
         super.tearDown()
     }
     
-    func testFetchProducts() {
+    func testFetchProductsSuccess() {
         // Given
-        let expectedResult = Result<Products, Error>.success(defaultProductsResponse)
+        let expectedResult = Result<Products, CabifyError>.success(defaultProductsResponse)
         apiRouter.completionResult = expectedResult
         
         // When
@@ -52,25 +52,48 @@ class ProductsProviderTests: XCTestCase {
         XCTAssertTrue(apiRouter.requestDecodablePublisherCalled)
         cancellable.cancel()
     }
+    
+    func testFetchProductsFailure() {
+        // Given
+        let expectedResult = Result<Products, CabifyError>.failure(.other)
+        apiRouter.completionResult = expectedResult
+        
+        // When
+        let cancellable = sut.fetchProducts()
+            .sink { completion in
+                // Then
+                switch completion {
+                case .finished: XCTFail("fetchProducts succeeded, expected to fail")
+                case .failure(let error): XCTAssertEqual(error, CabifyError.other)
+                }
+            } receiveValue: { response in
+                // Then
+                XCTFail("fetchCharacters succeeded, expected to fail")
+            }
+
+        // Then
+        XCTAssertTrue(apiRouter.requestDecodablePublisherCalled)
+        cancellable.cancel()
+    }
 }
 
 class ApiRouterMock: ApiRouting {
     var requestDecodableCalled = false
     var requestDecodablePublisherCalled = false
-    var completionResult: Result<Products, Error>?
+    var completionResult: Result<Products, CabifyError>?
     
-    func requestDecodable<T>(api: ApiCabify, _ completion: @escaping (Result<T, Error>) -> Void) where T : Decodable {
+    func requestDecodable<T>(api: ApiCabify, _ completion: @escaping (Result<T, CabifyError>) -> Void) where T : Decodable {
         requestDecodableCalled = true
-        if let result = completionResult as? Result<T, Error> {
+        if let result = completionResult as? Result<T, CabifyError> {
             completion(result)
         }
     }
     
-    func requestDecodablePublisher<T>(api: ApiCabify) -> AnyPublisher<T, Error> where T : Decodable {
+    func requestDecodablePublisher<T>(api: ApiCabify) -> AnyPublisher<T, CabifyError> where T : Decodable {
         requestDecodablePublisherCalled = true
         return Deferred {
             Future { promise in
-                if let result = self.completionResult as? Result<T, Error> {
+                if let result = self.completionResult as? Result<T, CabifyError> {
                     promise(result)
                 }
             }

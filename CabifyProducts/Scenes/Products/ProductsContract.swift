@@ -24,7 +24,7 @@ protocol ProductsPresenterContract {
 }
 
 protocol ProductsInteractorContract {
-    func fetchProducts() -> AnyPublisher<Products, Error>
+    func fetchProducts() -> AnyPublisher<Products, CabifyError>
 }
 
 protocol ProductsRouterContract {

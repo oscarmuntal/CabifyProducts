@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 protocol ProductsProviderContract {
-    func fetchProducts() -> AnyPublisher<Products, Error>
+    func fetchProducts() -> AnyPublisher<Products, CabifyError>
 }
 
 class ProductsProvider: ProductsProviderContract {
@@ -18,7 +18,7 @@ class ProductsProvider: ProductsProviderContract {
     init(apiRouter: ApiRouting = ApiRouter()) {
         self.apiRouter = apiRouter
     }
-    public func fetchProducts() -> AnyPublisher<Products, Error> {
+    public func fetchProducts() -> AnyPublisher<Products, CabifyError> {
         apiRouter.requestDecodablePublisher(api: .products)
     }
 }

@@ -13,12 +13,12 @@ class ProductsInteractorMock: ProductsInteractorContract {
     var fetchProductsCalled = false
     var productsMock: Products?
     
-    func fetchProducts() -> AnyPublisher<Products, Error> {
+    func fetchProducts() -> AnyPublisher<Products, CabifyError> {
         fetchProductsCalled = true
         if let products = productsMock {
-            return Just(products).setFailureType(to: Error.self).eraseToAnyPublisher()
+            return Just(products).setFailureType(to: CabifyError.self).eraseToAnyPublisher()
         } else {
-            return Fail(error: NSError(domain: "", code: 0, userInfo: nil)).eraseToAnyPublisher()
+            return Fail(error: .other).eraseToAnyPublisher()
         }
     }
 }
