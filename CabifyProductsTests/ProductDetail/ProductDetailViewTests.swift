@@ -46,6 +46,20 @@ class ProductDetailViewTests: XCTestCase {
         XCTAssertEqual(sut.numberOfItems.text, "0")
     }
     
+    func testSubstract() {
+        // Given
+        let expectedQuantity = 3
+        presenter.quantity = expectedQuantity
+        sut.presenter = presenter
+        
+        // When
+        sut.substract(UIButton())
+        
+        // Then
+        XCTAssertTrue(presenter.substractOneCalled)
+        XCTAssertEqual(presenter.substractOneCallCount, expectedQuantity - 1)
+    }
+    
 }
 
 class ProductDetailPresenterMock: ProductDetailPresenterContract {
@@ -60,6 +74,7 @@ class ProductDetailPresenterMock: ProductDetailPresenterContract {
     var closeModalScreenCalled = false
     var postSelectedItemsCalled = false
     var setupViewCalled = false
+    var substractOneCallCount = 0
     
     var view: ProductDetailViewContract? {
         didSet {
@@ -73,6 +88,7 @@ class ProductDetailPresenterMock: ProductDetailPresenterContract {
     
     func substractOne() {
         substractOneCalled = true
+        substractOneCallCount = quantity - 1
     }
     
     func closeModalScreen(_ viewController: UIViewController) {
