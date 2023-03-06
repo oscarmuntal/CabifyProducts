@@ -40,6 +40,10 @@ class ProductDetailViewTests: XCTestCase {
         
         // Then
         XCTAssertEqual(sut.productImageView.image, UIImage(named: "tshirt"))
+        XCTAssertEqual(sut.name.text, "T-shirt")
+        XCTAssertEqual(sut.price.text, "20.0 €")
+        XCTAssertEqual(sut.productDescription.text, "T-shirt detail 1")
+        XCTAssertEqual(sut.numberOfItems.text, "0")
     }
     
 }
