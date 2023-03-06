@@ -60,6 +60,19 @@ class ProductDetailViewTests: XCTestCase {
         XCTAssertEqual(presenter.substractOneCallCount, expectedQuantity - 1)
     }
     
+    func testAdd() {
+        // Given
+        let expectedQuantity = 8
+        presenter.quantity = expectedQuantity
+        sut.presenter = presenter
+        
+        // When
+        sut.add(UIButton())
+        
+        // Then
+        XCTAssertTrue(presenter.addOneCalled)
+        XCTAssertEqual(presenter.addOneCallCount, expectedQuantity + 1)
+    }
 }
 
 class ProductDetailPresenterMock: ProductDetailPresenterContract {
@@ -75,6 +88,7 @@ class ProductDetailPresenterMock: ProductDetailPresenterContract {
     var postSelectedItemsCalled = false
     var setupViewCalled = false
     var substractOneCallCount = 0
+    var addOneCallCount = 0
     
     var view: ProductDetailViewContract? {
         didSet {
@@ -84,6 +98,7 @@ class ProductDetailPresenterMock: ProductDetailPresenterContract {
     
     func addOne() {
         addOneCalled = true
+        addOneCallCount = quantity + 1
     }
     
     func substractOne() {
